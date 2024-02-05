@@ -37,6 +37,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return String.format("")
+        return String.format("%s %d (%s)",
+                getName(), getAge(), getCaretaker());
     }
 }
