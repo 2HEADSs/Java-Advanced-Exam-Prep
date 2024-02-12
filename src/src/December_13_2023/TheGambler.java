@@ -1,3 +1,5 @@
+package December_13_2023;
+
 import java.util.Scanner;
 
 public class TheGambler {
