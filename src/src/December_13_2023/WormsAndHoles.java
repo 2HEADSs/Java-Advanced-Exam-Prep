@@ -8,8 +8,6 @@ public class WormsAndHoles {
         Deque<Integer> wormsStack = new ArrayDeque<>();
         Deque<Integer> holesQueue = new ArrayDeque<>();
         int matches = 0;
-        boolean suitable = false;
-
 
         Arrays.stream(scanner.nextLine().split(" "))
                 .map(Integer::parseInt).
@@ -22,10 +20,8 @@ public class WormsAndHoles {
             int currentWorm = wormsStack.pop();
             int currentHole = holesQueue.poll();
             if (currentWorm == currentHole) {
-                suitable=true;
                 matches++;
             } else if (currentWorm > currentHole) {
-                suitable=false;
                 currentWorm -= 3;
                 if (currentWorm > 0) {
                     wormsStack.push(currentWorm);
@@ -38,12 +34,13 @@ public class WormsAndHoles {
         } else {
             System.out.println("There are no matches.");
         }
-        if(suitable){
+        if(matches == wormsStack.size()){
             System.out.println("Every worm found a suitable hole!");
         }
-        if(wormsStack.isEmpty() && !suitable){
+        if(wormsStack.isEmpty() && matches!=wormsStack.size()){
             System.out.println("Worms left: none");
         }
+
         if(!wormsStack.isEmpty()){
             System.out.print("Worms left: ");
             while (!wormsStack.isEmpty()){
@@ -55,6 +52,7 @@ public class WormsAndHoles {
                 }
             }
         }
+
         if(holesQueue.isEmpty()){
             System.out.println("Holes left: none");
         }else {
