@@ -9,14 +9,15 @@ public class Meeting {
         String malesInput = scanner.nextLine();
         String femaleInput = scanner.nextLine();
         int matches = 0;
+        Deque<Integer>malesStack = new ArrayDeque<>();
+        Deque<Integer>femalesQueue = new ArrayDeque<>();
 
-        Stack<Integer> malesStack = new Stack<>();
 
         Arrays.stream(malesInput.split("\\s+"))
                 .map(Integer::parseInt).forEach(malesStack::push);
 
-        Queue<Integer> femalesQueue = Arrays.stream(femaleInput.split("\\s+"))
-                .map(Integer::parseInt).collect(Collectors.toCollection(ArrayDeque::new));
+         Arrays.stream(femaleInput.split("\\s+"))
+                .map(Integer::parseInt).forEach(femalesQueue::offer);
 
         while (!malesStack.isEmpty() && !femalesQueue.isEmpty()) {
             if (malesStack.peek() <= 0) {
