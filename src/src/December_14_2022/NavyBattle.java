@@ -23,8 +23,8 @@ public class NavyBattle {
                 rowSubmarine = r;
                 colSubmarine = index;
             }
-
         }
+
         boolean stilMoving = true;
         while (stilMoving) {
             String direction = scanner.nextLine();
