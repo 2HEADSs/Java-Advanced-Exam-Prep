@@ -56,7 +56,7 @@ public class OffroadChallenge {
         if (reachedAltitudes.isEmpty()) {
             System.out.print("John failed to reach the top. John didn't reach any altitude.");
         }
-        if (reachedAltitudes.size() == 4) {
+        if (reachedAltitudes.size() == altitude.size()) {
             System.out.print("John has reached all the altitudes and managed to reach the top!");
         }
     }
